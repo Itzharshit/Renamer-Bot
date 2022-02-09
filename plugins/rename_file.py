@@ -30,7 +30,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 
-@Clinton.on_message(filters.command(["rename"]))
+@clinton.on_message((filters.private) & (filters.document | filters.video | filters.audio | filters.photo) & ~filters.edited, group=4)
 async def rename_doc(bot, update):
 
     update_channel = Config.UPDATE_CHANNEL
