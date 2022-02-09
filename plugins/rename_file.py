@@ -28,7 +28,14 @@ from functions.display_progress import progress_for_pyrogram
 from pyrogram.errors import UserNotParticipant, UserBannedInChannel
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
+async def force_name(bot, message):
 
+    await bot.send_message(
+        message.reply_to_message.from_user.id,
+        "𝘗𝘭𝘦𝘢𝘴𝘦 𝘴𝘶𝘣𝘮𝘪𝘵 𝘺𝘰𝘶𝘳 𝘧𝘪𝘭𝘦 𝘯𝘢𝘮𝘦.\n\n𝗡𝗼𝘁𝗲 : 𝘗𝘭𝘦𝘢𝘴𝘦 𝘦𝘹𝘤𝘭𝘶𝘥𝘦 𝘧𝘪𝘭𝘦 𝘦𝘹𝘵𝘦𝘯𝘴𝘪𝘰𝘯.",
+        reply_to_message_id=message.reply_to_message.message_id,
+        reply_markup=ForceReply(True)
+    )
 
 @Client.on_message(filters.private & filters.reply & filters.text)
 async def rename_doc(bot, update):
