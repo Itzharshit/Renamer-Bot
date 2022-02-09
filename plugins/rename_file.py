@@ -37,7 +37,7 @@ async def force_name(bot, message):
         reply_markup=ForceReply(True)
     )
 
-@Client.on_message(filters.private & filters.reply & filters.text)
+@Clinton.on_message(filters.private & filters.reply & filters.text)
 async def rename_doc(bot, update):
 
     update_channel = Config.UPDATE_CHANNEL
